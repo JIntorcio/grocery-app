@@ -1,4 +1,4 @@
-const { supabase } = require('../../../lib/supabase')
+const { supabase } = require('../../lib/supabase')
 
 export default async function handler(req, res) {
   console.log('ENV:', process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY ? 'KEY SET' : 'KEY MISSING')
