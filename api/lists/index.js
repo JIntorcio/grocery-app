@@ -1,21 +1,23 @@
 const { supabase } = require('../../../lib/supabase')
 
 export default async function handler(req, res) {
+  console.log('ENV:', process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY ? 'KEY SET' : 'KEY MISSING')
+
   if (req.method !== 'GET') {
-    res.statusCode = 405
-    return res.json({ error: 'Method not allowed' })
+    return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { data, error } = await supabase
-    .from('grocery_lists')
-    .select('*')
-    .order('created_at', { ascending: true })
+  try {
+    const { data, error } = await supabase
+      .from('grocery_lists')
+      .select('*')
+      .order('created_at', { ascending: true })
 
-  if (error) {
-    res.statusCode = 500
-    return res.json({ error: error.message })
+    if (error) throw error
+
+    return res.status(200).json(data)
+  } catch (err) {
+    console.error('Supabase query failed:', err)
+    return res.status(500).json({ error: err.message })
   }
-
-  res.statusCode = 200
-  return res.json(data)
 }
