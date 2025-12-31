@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState, useEffect } from 'react'
-import GroceryList from './components/GroceryList.js'
+import GroceryList from './Components/GroceryList'
 
 function App() {
   const [items, setItems] = useState([])

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JIntorcio/grocery-app#readme",
   "dependencies": {
-    "@supabase/supabase-js": "^2.89.0"
+    "@supabase/supabase-js": "^2.89.0",
+    "react-beautiful-dnd": "^13.1.1"
   }
 }
