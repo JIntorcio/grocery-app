@@ -7,7 +7,7 @@ function App() {
 
   // Fetch grocery items from Supabase via Vercel API
   useEffect(() => {
-    fetch('https://<your-project>.vercel.app/api/lists/1/items')
+    fetch('https://grocery-app-pi-ten.vercel.app/api/lists/1/items')
       .then(res => res.json())
       .then(data => setItems(data))
   }, [])
@@ -19,7 +19,7 @@ function App() {
       position: (index + 1).toString().padStart(3, '0'),
     }))
 
-    await fetch('https://<your-project>.vercel.app/api/items/reorder', {
+    await fetch('https://grocery-app-pi-ten.vercel.app/api/items/reorder', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -35,7 +35,7 @@ function App() {
       position: (index + 1).toString().padStart(3, '0'),
     }))
 
-    await fetch('https://<your-project>.vercel.app/api/departments/reorder', {
+    await fetch('https://grocery-app-pi-ten.vercel.app/api/departments/reorder', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
