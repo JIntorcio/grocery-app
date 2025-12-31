@@ -1,6 +1,6 @@
 const { supabase } = require('../../../lib/supabase')
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== 'GET') {
     res.statusCode = 405
     return res.json({ error: 'Method not allowed' })
