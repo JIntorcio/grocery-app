@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import GroceryList from './GroceryList'
 
 function App() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    // Fetch items from your API for list 1
     fetch('https://grocery-9d98f8cvw-john-intorcios-projects.vercel.app/api/lists/1/items')
       .then(res => res.json())
       .then(data => setItems(data))
