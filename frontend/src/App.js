@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     // Fetch items from your API for list 1
-    fetch('https://<your-project>.vercel.app/api/lists/1/items')
+    fetch('https://grocery-9d98f8cvw-john-intorcios-projects.vercel.app/api/lists/1/items')
       .then(res => res.json())
       .then(data => setItems(data))
   }, [])
